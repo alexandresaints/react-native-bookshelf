@@ -11,7 +11,7 @@ import MostViewed from "../MostViewed";
 import { Grid, Col } from "react-native-easy-grid";
 
 
-export default function CategoriesScreen(props){
+const CategoriesScreen = (props) => {
 
 const navigation = useNavigation()
 const [dataBooks, setDataBooks] = useState([])
@@ -25,30 +25,29 @@ const kingOfBooks = props.route.params.list
                     console.log(error)
                 })
     }, [])
-    
-    function renderItem({item}){
-    return(
-        <TouchableOpacity
-        onPress={() => {
-            navigation.navigate('Book', {title: item.title, rank: item.rank, description: item.description, image: item.book_image, author: item.author})
-        }}
-        >
-            <Image source={{uri: item.book_image}} style={styles.bookImage}/>
-            <Text numberOfLines={1} style={styles.bookFont}>{item.title}</Text>
-            <Text numberOfLines={1} style={styles.bookAuthorFont}>{item.author}</Text>
-        </TouchableOpacity>
-    )
+
 return(
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
+        {dataBooks.lenght < 1 ? null :
     <Flatlist
            data={dataBooks}
-           keyExtractor={item => item.id}
-           renderItem={renderItem}
+           keyExtractor={(item, index) => {return item.rank}}
+           renderItem={({item, index}) => (
+            <TouchableOpacity
+            onPress={() => {
+                navigation.navigate('Book', {title: item.title, rank: item.rank, description: item.description, image: item.book_image, author: item.author})
+            }}
+            >
+                <Image source={{uri: item.book_image}} style={styles.bookImage}/>
+                <Text numberOfLines={1} style={styles.bookFont}>{item.title}</Text>
+                <Text numberOfLines={1} style={styles.bookAuthorFont}>{item.author}</Text>
+            </TouchableOpacity>
+           )}
        />
+        }
    </SafeAreaView>
 
 )
-}
 }
 
 const styles = StyleSheet.create({
@@ -94,3 +93,5 @@ const styles = StyleSheet.create({
     }
 
 })
+
+export default CategoriesScreen
