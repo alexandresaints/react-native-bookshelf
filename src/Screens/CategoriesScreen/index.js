@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, {useState, useEffect } from "react";
-import {View, Flatlist, StyleSheet, Text, Image, ScrollView, TouchableOpacity, TextInput, SafeAreaView } from "react-native";
+import {View, FlatList, StyleSheet, Text, Image, ScrollView, TouchableOpacity, TextInput, SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -27,9 +27,10 @@ const kingOfBooks = props.route.params.list
     }, [])
 
 return(
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
+        <View style={styles.container}>
         {dataBooks.lenght < 1 ? null :
-    <Flatlist
+    <FlatList
            data={dataBooks}
            keyExtractor={(item, index) => {return item.rank}}
            renderItem={({item, index}) => (
@@ -43,18 +44,21 @@ return(
                 <Text numberOfLines={1} style={styles.bookAuthorFont}>{item.author}</Text>
             </TouchableOpacity>
            )}
+           numColumns={3}
        />
         }
+        </View>
    </SafeAreaView>
 
 )
 }
 
+export default CategoriesScreen
+
 const styles = StyleSheet.create({
 
     container: {
-        margin: 20,
-        backgroundColor: '#FFF',
+        backgroundColor: '#FFF'
     },
     listBooks: {
         backgroundColor: '#FFF',
@@ -87,11 +91,7 @@ const styles = StyleSheet.create({
     },
 
     bookContainer: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        flex: 1
+        margin: 10
     }
 
 })
-
-export default CategoriesScreen
