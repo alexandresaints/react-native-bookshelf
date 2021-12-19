@@ -38,7 +38,7 @@ const generateColor = () => {
                 <View styles={{flexDirection: 'row'}}>
                     <TouchableOpacity
                     onPress={() => {
-                        navigation.navigate('Category', {list: list_name_encoded})
+                        navigation.navigate('Category', {list: list_name_encoded, list_name: list_name})
                     }}
                     >
                         <View style={[styles.boxCategory, {backgroundColor: generateColor()}]}></View>

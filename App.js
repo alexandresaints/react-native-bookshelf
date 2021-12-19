@@ -15,7 +15,7 @@ export default function App(){
         <NavigationContainer>
             <Main.Navigator>
                 <Main.Screen name='Home' component={Home} options={{ headerTitle: (props) => <Navbar {...props} />, headerBackVisible: false }}/>
-                <Main.Screen name='Book' component={Book} options={{ headerTitle: (props) => <Navbar {...props} />}}/>
+                <Main.Screen name='Book' component={Book} options={{ headerTitle: ''}}/>
                 <Main.Screen name='Category' component={CategoriesScreen} options={{ headerTitle: (props) => <Navbar {...props} />}}/>
             </Main.Navigator>
         </NavigationContainer>

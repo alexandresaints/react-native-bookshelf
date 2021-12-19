@@ -37,14 +37,14 @@ const [searchData, setsearchData] = ('')
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} pagingEnabled={false} style={styles.bookContainer}>
             {dataBooks.map((book) => {
                const bookList = book.books.map((book) => {
-                    const {author, description, title, rank, book_image, price, weeks_on_list} = book
+                    const {author, description, title, rank, book_image, price, weeks_on_list, list_name} = book
                     console.log(book)
             return(
                 <View key={rank}>
                     <View>
                     <TouchableOpacity
                      onPress={() => {
-                        navigation.navigate('Book', {title: title, rank: rank, description: description, image: book_image, author: author})
+                        navigation.navigate('Book', {title: title, rank: rank, description: description, image: book_image, author: author, list: list_name})
                     }}
                     >                        
                         <Image source={{uri: book_image}} style={styles.bookImage}/>

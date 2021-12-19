@@ -17,6 +17,7 @@ const title = props.route.params.title
 const description = props.route.params.description
 const image = props.route.params.image
 const author = props.route.params.author
+const category = props.route.params.list
 const [dataBooks, setDataBooks] = useState([])
 
     useEffect(() => {
@@ -36,11 +37,18 @@ const [dataBooks, setDataBooks] = useState([])
                     <View>
                         <Text style={styles.bookFont}>{title}</Text>
                         <Text style={styles.bookAuthorFont}>{author}</Text>
+                        <RatingComponent/>
+                        <Text style={styles.bookAuthorFont}>{category}</Text>
                     </View>
                 </View>
                 <View>
                     <Text style={styles.aboutBook}>Sobre esse livro</Text>
                     <Text style={styles.descriptionBook}>{description}</Text>
+                </View>
+                <View style={styles.readNowContainer}>
+                <TouchableOpacity style={styles.readNow}>
+                        <Text style={styles.readNowText}>Ler agora</Text>
+                    </TouchableOpacity>
                 </View>
         </View>
     </ScrollView>
@@ -98,6 +106,25 @@ const styles = StyleSheet.create({
 
     bookContainer: {
         flexDirection: 'row',
+    },
+
+    readNowContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 220
+    },
+    readNowText: {
+        color: '#FFF',
+        fontWeight: 'bold',
+        fontSize: 13
+    },
+
+    readNow: {
+        width: '100%',
+        padding: 10,
+        backgroundColor: '#FFA500',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 
 })

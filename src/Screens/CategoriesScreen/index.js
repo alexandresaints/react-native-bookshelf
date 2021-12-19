@@ -16,6 +16,7 @@ const CategoriesScreen = (props) => {
 const navigation = useNavigation()
 const [dataBooks, setDataBooks] = useState([])
 const kingOfBooks = props.route.params.list
+const list = props.route.params.list_name
 
     useEffect(() => {
         axios.get(`https://api.nytimes.com/svc/books/v3/lists/current/${kingOfBooks}.json?api-key=vi0bsV0yOCA9qYnmAaOUJV4dO0BNhUGR`)
@@ -27,16 +28,16 @@ const kingOfBooks = props.route.params.list
     }, [])
 
 return(
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: '#FFF'}}>
         <View style={styles.container}>
         {dataBooks.lenght < 1 ? null :
     <FlatList
            data={dataBooks}
-           keyExtractor={(item, index) => {return item.rank}}
-           renderItem={({item, index}) => (
+           keyExtractor={(item) => {return item.rank}}
+           renderItem={({item}) => (
             <TouchableOpacity
             onPress={() => {
-                navigation.navigate('Book', {title: item.title, rank: item.rank, description: item.description, image: item.book_image, author: item.author})
+                navigation.navigate('Book', {title: item.title, rank: item.rank, description: item.description, image: item.book_image, author: item.author, list: list})
             }}
             >
                 <Image source={{uri: item.book_image}} style={styles.bookImage}/>

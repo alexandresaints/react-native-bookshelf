@@ -11,7 +11,7 @@ export default function RatingComponent(){
             showRating={false}
             defaultRating={3}
             size={10}
-            style={{ padding: 0 }}
+            style={{ padding: 20 }}
             />
     )
 }
