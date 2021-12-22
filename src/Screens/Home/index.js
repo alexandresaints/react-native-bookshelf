@@ -50,7 +50,9 @@ const [searchData, setsearchData] = ('')
                         <Image source={{uri: book_image}} style={styles.bookImage}/>
                         <Text numberOfLines={1} style={styles.bookFont}>{title}</Text>
                         <Text numberOfLines={1} style={styles.bookAuthorFont}>{author}</Text>
-                        <RatingComponent/>
+                        <View style={{width: 78}}>
+                            <RatingComponent/>
+                        </View>
                     </TouchableOpacity>
                     </View>
                 </View>

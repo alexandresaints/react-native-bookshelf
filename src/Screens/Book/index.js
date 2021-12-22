@@ -1,15 +1,8 @@
 import axios from "axios";
 import React, {useState, useEffect } from "react";
 import {View, ActivityIndicator, StyleSheet, Text, Image, ScrollView, TouchableOpacity, TextInput } from "react-native";
-import {NavigationContainer} from '@react-navigation/native'
-import { createNativeStackNavigator  } from '@react-navigation/native-stack';
 
-import Icon from 'react-native-vector-icons/Ionicons';
 import RatingComponent from "../../Components/Ratings";
-
-import Categories from "../Categories";
-import MostViewed from "../MostViewed";
-
 
 export default function Book(props){
 
@@ -37,7 +30,9 @@ const [dataBooks, setDataBooks] = useState([])
                     <View>
                         <Text style={styles.bookFont}>{title}</Text>
                         <Text style={styles.bookAuthorFont}>{author}</Text>
-                        <RatingComponent/>
+                        <View style={{width: 78}}>
+                            <RatingComponent/>
+                        </View>
                         <Text style={styles.bookAuthorFont}>{category}</Text>
                     </View>
                 </View>

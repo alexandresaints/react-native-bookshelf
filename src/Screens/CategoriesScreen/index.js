@@ -3,12 +3,8 @@ import React, {useState, useEffect } from "react";
 import {View, FlatList, StyleSheet, Text, Image, ScrollView, TouchableOpacity, TextInput, SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 
-import Icon from 'react-native-vector-icons/Ionicons';
 import RatingComponent from "../../Components/Ratings";
 
-import Categories from "../Categories";
-import MostViewed from "../MostViewed";
-import { Grid, Col } from "react-native-easy-grid";
 
 
 const CategoriesScreen = (props) => {
@@ -40,9 +36,14 @@ return(
                 navigation.navigate('Book', {title: item.title, rank: item.rank, description: item.description, image: item.book_image, author: item.author, list: list})
             }}
             >
+                <View style={{marginTop: 20}}>
                 <Image source={{uri: item.book_image}} style={styles.bookImage}/>
                 <Text numberOfLines={1} style={styles.bookFont}>{item.title}</Text>
                 <Text numberOfLines={1} style={styles.bookAuthorFont}>{item.author}</Text>
+                <View style={{width: 78}}>
+                    <RatingComponent/>
+                </View>
+                </View>
             </TouchableOpacity>
            )}
            numColumns={3}
@@ -59,7 +60,9 @@ export default CategoriesScreen
 const styles = StyleSheet.create({
 
     container: {
-        backgroundColor: '#FFF'
+        backgroundColor: '#FFF',
+        paddingLeft: 20,
+        paddingRight: 20
     },
     listBooks: {
         backgroundColor: '#FFF',
@@ -84,8 +87,8 @@ const styles = StyleSheet.create({
     },
 
     bookImage: {
-        width: 130,
-        height: 180,
+        width: 110,
+        height: 150,
         marginRight: 10,
         borderRadius: 5,
         flex: 1

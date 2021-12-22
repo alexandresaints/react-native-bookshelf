@@ -10,8 +10,8 @@ export default function RatingComponent(){
             ratingCount={5}
             showRating={false}
             defaultRating={3}
+            reviewSize={0}
             size={10}
-            style={{ padding: 20 }}
             />
     )
 }

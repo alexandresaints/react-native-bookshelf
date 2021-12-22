@@ -45,7 +45,9 @@ const [dataBooks, setDataBooks] = useState([])
                         <Text numberOfLines={1} style={styles.bookFont}>{title}</Text>
                         <Text numberOfLines={1} style={styles.bookAuthorFont}>{author}</Text>
                     </TouchableOpacity>
-                    <RatingComponent/>
+                    <View style={{width: 78}}>
+                        <RatingComponent/>
+                    </View>
                     </View>
                  </View>
             )
