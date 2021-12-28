@@ -14,7 +14,7 @@ import {Input} from './styles'
 export default function Home({navigation}){
 
 const [dataBooks, setDataBooks] = useState([])
-const [searchData, setsearchData] = ('')
+const [searchBook, setSearchBook] = useState('')
 
     useEffect(() => {
         axios.get(`https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=vi0bsV0yOCA9qYnmAaOUJV4dO0BNhUGR`)
@@ -28,7 +28,7 @@ const [searchData, setsearchData] = ('')
     return(
     <ScrollView style={{backgroundColor: '#FFF'}}>
         <View style={styles.container}>
-            <Input placeholder="Qual livro você gostaria de ler hoje?" onChangeText={setsearchData}/>
+            <Input placeholder="Qual livro você gostaria de ler hoje?" onChangeText={setSearchBook}/>
             <View>
                 <Text style={styles.headerTopic}>
                     Para você
@@ -36,7 +36,13 @@ const [searchData, setsearchData] = ('')
             </View>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} pagingEnabled={false} style={styles.bookContainer}>
             {dataBooks.map((book) => {
-               const bookList = book.books.map((book) => {
+               const bookList = book.books.filter((val) => {
+                   if(searchBook === ''){
+                       return val
+                   } else if(val.title.toLowerCase().includes(searchBook.toLowerCase())){
+                        return val
+                   }
+               }).map((book) => {
                     const {author, description, title, rank, book_image, price, weeks_on_list, list_name} = book
                     console.log(book)
             return(
