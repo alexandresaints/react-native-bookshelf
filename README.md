@@ -13,6 +13,13 @@ React-Native com JS, consumindo API da New York Times.
 
 
 
+https://user-images.githubusercontent.com/73872086/149877867-ab58e320-1ae0-4e82-ae77-29f0c76bdb02.mp4
+
+
+https://user-images.githubusercontent.com/73872086/149877883-d86befdd-7b08-4eb8-b527-42393a0fbcbe.mp4
+
+
+
 ### 🇺🇸
 
 ## How to view the project?
@@ -27,5 +34,8 @@ React-Native with JS, consuming New York Times API.
 ## Project preview:
 
 
-https://user-images.githubusercontent.com/73872086/143893755-e40b3d88-98a3-43be-945d-4fb398383d04.mp4
 
+https://user-images.githubusercontent.com/73872086/149877897-19ed3611-4b80-491a-a5e5-66adb4a70984.mp4
+
+
+https://user-images.githubusercontent.com/73872086/149877883-d86befdd-7b08-4eb8-b527-42393a0fbcbe.mp4
